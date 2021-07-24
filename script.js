@@ -57,23 +57,21 @@ function rDiceRandom() {
         } changePlayer();
     }
 
+    else {
     if ((pointDice >= 2)&&(activePlayer == globalPlayer1)){
         currentScoreJ1.textContent = parseInt(currentScoreJ1.textContent) + pointDice;
     } else {
         currentScoreJ2.textContent = parseInt(currentScoreJ2.textContent) + pointDice;
-    }
+    } }
 }; 
 
 // Changement de joueur 
 
 function changePlayer(){
+   currentScoreJ1.textContent=0;
+   currentScoreJ2.textContent=0;
 
-   currentScoreJ2.textContent = 0;
-   currentScoreJ1.textContent = 0;
-
-   activePlayer = activePlayer == globalPlayer1 ? globalPlayer2 : globalPlayer1;
-   
-   
+   activePlayer = activePlayer == globalPlayer1 ? globalPlayer2 : globalPlayer1;  
 };
 
 
@@ -82,7 +80,5 @@ function changePlayer(){
 document.getElementById('holdDiceButton').onclick = holdDice;
 
 function holdDice() {
-    if (activePlayer === player1){
-        
-    }
+    
 };
