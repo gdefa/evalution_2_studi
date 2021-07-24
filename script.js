@@ -1,15 +1,16 @@
 // Les varibales //
 
 
-var joueur1 = document.getElementById('player1');
-var joueur2 = document.getElementById('player2');
+var player1 = document.getElementById('player1');
+var player2 = document.getElementById('player2');
 var scoreGlobalJ1 = document.getElementById('scoreGlobalJ1');
 var scoreGlobalJ2 = document.getElementById ('scoreGlobalJ2');
 var currentScoreJ1 = document.getElementById('currentScoreJ1');
 var currentScoreJ2 = document.getElementById('currentScoreJ2');
+var resultatDes = document.getElementById('resultatDes');
+var activePlayer = player1;
 
-
-const buttonHoldDice = document.getElementByClassName('holdDiceButton');
+const holdDice = document.getElementById('holdDiceButton');
 
 var imgDiceRandom = [
     "images/des_1.jpg",
@@ -30,7 +31,33 @@ function init(){
     scoreGlobalJ2.textContent=0;
     currentScoreJ1.textContent=0;
     currentScoreJ2.textContent=0;
+    resultatDes.innerHTML ="";
 
 };
 
 
+// Bouton random lancement de dès
+
+document.getElementById('rollDiceButton').onclick= rDiceRandom;
+
+function rDiceRandom() {
+
+    var randomNumber = Math.floor(Math.random()* imgDiceRandom.length);
+    var pointDice = imgDiceRandom.indexOf(imgDiceRandom[randomNumber]) + 1;
+    
+    resultatDes.innerHTML = '<img class="w-80 h-80" src= ' + imgDiceRandom[randomNumber] + '>';
+    if (pointDice === 1){
+        if (activePlayer === player1){
+            currentScoreJ1.textContent = 0;
+            changePlayer()
+        }  else {
+            currentScoreJ2.textContent = 0;
+        }
+    }
+};
+
+// Changement de joueur 
+
+function changePlayer() {
+   activePlayer = activePlayer == player1 ? player2 : player1;
+};
