@@ -8,8 +8,11 @@ var scoreGlobalJ2 = document.getElementById ('scoreGlobalJ2');
 var currentScoreJ1 = document.getElementById('currentScoreJ1');
 var currentScoreJ2 = document.getElementById('currentScoreJ2');
 var resultatDes = document.getElementById('resultatDes');
-var activePlayer = player1;
 
+var globalPlayer1 = document.getElementById('globalPlayer1');
+var globalPlayer2 = document.getElementById('globalPlayer2');
+
+var activePlayer = globalPlayer1;
 
 var imgDiceRandom = [
     "images/des_1.jpg",
@@ -31,6 +34,7 @@ function init(){
     currentScoreJ1.textContent=0;
     currentScoreJ2.textContent=0;
     resultatDes.innerHTML ="";
+    activePlayer = globalPlayer1;
 
 };
 
@@ -45,18 +49,15 @@ function rDiceRandom() {
     var pointDice = imgDiceRandom.indexOf(imgDiceRandom[randomNumber]) + 1;
     
     resultatDes.innerHTML = '<img class="w-80 h-80" src= ' + imgDiceRandom[randomNumber] + '>';
-    if (pointDice ==1){
-        if (activePlayer == 1){
+    if (pointDice==1){
+        if (activePlayer == globalPlayer1){
             currentScoreJ1.textContent = 0;
-            
-        } else{
+        } else {
             currentScoreJ2.textContent = 0;
-            
         } changePlayer();
     }
-   
-    
-    if ((pointDice > 2)&& (activePlayer == 1)){
+
+    if ((pointDice >= 2)&&(activePlayer == globalPlayer1)){
         currentScoreJ1.textContent = parseInt(currentScoreJ1.textContent) + pointDice;
     } else {
         currentScoreJ2.textContent = parseInt(currentScoreJ2.textContent) + pointDice;
@@ -65,8 +66,14 @@ function rDiceRandom() {
 
 // Changement de joueur 
 
-function changePlayer() {
-   activePlayer = activePlayer == player1 ? player2 : player1;
+function changePlayer(){
+
+   currentScoreJ2.textContent = 0;
+   currentScoreJ1.textContent = 0;
+
+   activePlayer = activePlayer == globalPlayer1 ? globalPlayer2 : globalPlayer1;
+   
+   
 };
 
 
