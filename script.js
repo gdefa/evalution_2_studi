@@ -45,14 +45,23 @@ function rDiceRandom() {
     var pointDice = imgDiceRandom.indexOf(imgDiceRandom[randomNumber]) + 1;
     
     resultatDes.innerHTML = '<img class="w-80 h-80" src= ' + imgDiceRandom[randomNumber] + '>';
-
-    if ((pointDice === 1)&&(activePlayer === player1)) {
-        currentScoreJ1.textContent = 0;
-    } else if ((pointDice === 1) && (activePlayer === player2)) {
-        currentScoreJ2.textContent = 0;
+    if (pointDice ==1){
+        if (activePlayer == 1){
+            currentScoreJ1.textContent = 0;
+            
+        } else{
+            currentScoreJ2.textContent = 0;
+            
+        } changePlayer();
     }
-
-};
+   
+    
+    if ((pointDice > 2)&& (activePlayer == 1)){
+        currentScoreJ1.textContent = parseInt(currentScoreJ1.textContent) + pointDice;
+    } else {
+        currentScoreJ2.textContent = parseInt(currentScoreJ2.textContent) + pointDice;
+    }
+}; 
 
 // Changement de joueur 
 
