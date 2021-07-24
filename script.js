@@ -10,7 +10,6 @@ var currentScoreJ2 = document.getElementById('currentScoreJ2');
 var resultatDes = document.getElementById('resultatDes');
 var activePlayer = player1;
 
-const holdDice = document.getElementById('holdDiceButton');
 
 var imgDiceRandom = [
     "images/des_1.jpg",
@@ -46,18 +45,28 @@ function rDiceRandom() {
     var pointDice = imgDiceRandom.indexOf(imgDiceRandom[randomNumber]) + 1;
     
     resultatDes.innerHTML = '<img class="w-80 h-80" src= ' + imgDiceRandom[randomNumber] + '>';
-    if (pointDice === 1){
-        if (activePlayer === player1){
-            currentScoreJ1.textContent = 0;
-            changePlayer()
-        }  else {
-            currentScoreJ2.textContent = 0;
-        }
+
+    if ((pointDice === 1)&&(activePlayer === player1)) {
+        currentScoreJ1.textContent = 0;
+    } else if ((pointDice === 1) && (activePlayer === player2)) {
+        currentScoreJ2.textContent = 0;
     }
+
 };
 
 // Changement de joueur 
 
 function changePlayer() {
    activePlayer = activePlayer == player1 ? player2 : player1;
+};
+
+
+// bouton hold 
+
+document.getElementById('holdDiceButton').onclick = holdDice;
+
+function holdDice() {
+    if (activePlayer === player1){
+        
+    }
 };
