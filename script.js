@@ -80,5 +80,16 @@ function changePlayer(){
 document.getElementById('holdDiceButton').onclick = holdDice;
 
 function holdDice() {
-    
+    if (activePlayer == globalPlayer1){
+        scoreGlobalJ1.textContent = parseInt(scoreGlobalJ1.textContent) + parseInt(currentScoreJ1.textContent);
+        scoreGlobalJ1.textContent >= 100 ? endGame() : changePlayer();
+        
+    } else {
+        scoreGlobalJ2.textContent = parseInt(scoreGlobalJ2.textContent) + parseInt(currentScoreJ2.textContent);
+        scoreGlobalJ2.textContent >= 100 ? endGame() : changePlayer();
+    }
+};
+
+function endGame() {
+    alert('Vous avez gagné la partie !!!');
 };
