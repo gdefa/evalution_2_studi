@@ -14,6 +14,8 @@ var globalPlayer2 = document.getElementById('globalPlayer2');
 
 var activePlayer = globalPlayer1;
 
+// Tableau d'images des Dès -----------------
+
 var imgDiceRandom = [
     "images/des_1.jpg",
     "images/des_2.jpg",
@@ -23,7 +25,7 @@ var imgDiceRandom = [
     "images/des_6.jpg",
 ];
 
-// initialisation nouvelle partie 
+// initialisation nouvelle partie --------------
 
 document.getElementById("newGameInit").onclick= init;
 
@@ -39,7 +41,7 @@ function init(){
 };
 
 
-// Bouton random lancement de dès
+// Bouton random lancement de dès ------------
 
 document.getElementById('rollDiceButton').onclick= rDiceRandom;
 
@@ -65,7 +67,7 @@ function rDiceRandom() {
     } }
 }; 
 
-// Changement de joueur 
+// Changement de joueur --------------
 
 function changePlayer(){
    currentScoreJ1.textContent=0;
@@ -75,7 +77,7 @@ function changePlayer(){
 };
 
 
-// bouton hold 
+// bouton hold ---------------
 
 document.getElementById('holdDiceButton').onclick = holdDice;
 
@@ -89,6 +91,8 @@ function holdDice() {
         scoreGlobalJ2.textContent >= 100 ? endGame() : changePlayer();
     }
 };
+
+// Fin du jeu, création d'une alerte ---------------
 
 function endGame() {
     alert('Vous avez gagné la partie !!!');
