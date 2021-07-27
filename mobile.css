@@ -1,4 +1,7 @@
 @media screen and (max-width:1024px) and (orientation: landscape)  {
+    #message{
+        display: none;
+    }
     h1{
         font-size: 1.5em;
         padding: 10px;
@@ -23,5 +26,14 @@
     
     div > newGameButton{
      padding: 5px;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: portrait){
+    #message{
+        font-size: 3em;
+    }
+    button{
+        display: none;
     }
 }
